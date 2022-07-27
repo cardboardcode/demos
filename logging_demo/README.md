@@ -1,5 +1,18 @@
 ## **What Is This?**
 
+This demo creates and runs 2 individual **ROS2** nodes, **logger_usage_demo** and **logger_config**. 
+
+Through **logger_usage_demo** implementation, working examples are provided for the following **ROS2 Logging** Usage utilities:
+
+- [RCLCPP_INFO_ONCE](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ac398a2db64fa466508754a6c4dc617c9)
+- [RCLCPP_INFO](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#aeb160b6dd1edb7273480560c1027b264)
+- [RCLCPP_ERROR](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ad8f3687eda7312561768319e99cd4ca6)
+- [RCLCPP_DEBUG_FUNCTION](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ab0d5c80bec310a4b333f6af7be97d856)
+- [RCLCPP_DEBUG_EXPRESSION](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ae7f5710b8149302d52349fa013f1e866)
+
+Through **logger_config** implementation, working examples are provided for the following **ROW2 Logging**  Configuration utilities:
+
+- [rcutils_logging_severity_level_from_string](https://docs.ros2.org/latest/api/rcutils/logging_8h.html#a50c51eb73519fb91ebac639555584cde)
 
 
 ## **Build**
@@ -25,7 +38,7 @@ source install/setup.bash
 
 ## **Verify**
 
-The following similar terminal output should be observed:
+The following similar terminal output should be observed when running `ros2 run logging_demo logging_demo_main`:
 
 ```bash
 [INFO] [1658673666.816515284] [logger_usage_demo]: Timer callback called (this will only log once)
@@ -81,6 +94,7 @@ The following similar terminal output should be observed:
 [INFO] [1658673681.817101197] [logger_usage_demo]: Publishing: 'Current count: 14'
 [DEBUG] [1658673681.817238302] [logger_usage_demo]: Count is even (expression evaluated to true)
 [INFO] [1658673682.317126985] [logger_usage_demo]: Publishing: 'Current count: 15'
+...
 ```
 
 ## **FAQ**
@@ -104,5 +118,12 @@ source /opt/ros/rolling/local_setup.bash
 colcon build --packages-select logging_demo
 ```
 
+`Q`: What is the difference between `rclcpp` and `rcutils` LOGGING MACROS? Is one performing better than the other? 
+
+`A`: The difference between `rclcpp` and `rcutils` LOGGING MACROS are insignificant. `rclcpp` LOGGING MACRO are implmeented by using those of `rcutils`. 
+
+Reference: https://answers.ros.org/question/375900/rcutils-logging-macro-vs-ros_info/?answer=376574#post-id-376574
+
 ## **References**
--  
+-  `rclcpp` ROS2 C++ Logging Utility API: https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html 
+-  `rcutils` ROS2 Logging Library: https://docs.ros2.org/galactic/api/rcutils/logging_8h.html
