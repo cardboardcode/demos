@@ -9,11 +9,14 @@ Through **logger_usage_demo** implementation, working examples are provided for 
 - [RCLCPP_ERROR](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ad8f3687eda7312561768319e99cd4ca6)
 - [RCLCPP_DEBUG_FUNCTION](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ab0d5c80bec310a4b333f6af7be97d856)
 - [RCLCPP_DEBUG_EXPRESSION](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#ae7f5710b8149302d52349fa013f1e866)
+- [RCLCPP_WARN](https://docs.ros2.org/latest/api/rclcpp/logging_8hpp.html#a5d1ab3e35c046fd7bf3d5cb36484cea5)
 
 Through **logger_config** implementation, working examples are provided for the following **ROW2 Logging**  Configuration utilities:
 
 - [rcutils_logging_severity_level_from_string](https://docs.ros2.org/latest/api/rcutils/logging_8h.html#a50c51eb73519fb91ebac639555584cde)
 
+![](img/logger_usage_demo_logic_flowchart.png)
+![](img/logger_config_logic_flowchart.png)
 
 ## **Build**
 
@@ -37,6 +40,8 @@ source install/setup.bash
 ```
 
 ## **Verify**
+
+### **logger_demo_usage**
 
 The following similar terminal output should be observed when running `ros2 run logging_demo logging_demo_main`:
 
@@ -95,6 +100,17 @@ The following similar terminal output should be observed when running `ros2 run 
 [DEBUG] [1658673681.817238302] [logger_usage_demo]: Count is even (expression evaluated to true)
 [INFO] [1658673682.317126985] [logger_usage_demo]: Publishing: 'Current count: 15'
 ...
+```
+
+The following similar terminal output should be observed when running `ros2 run logging_demo logging_demo_main`:
+
+```bash
+# Open new terminal.
+cd $HOME
+cd ~/demo_ws
+source /opt/ros/<DISTRO_NAME>/local_setup.bash
+source install/local_setup.bash
+ros2 service call /logging_demo/ConfigLogger "{logger_name: user, level: DEBUG}"
 ```
 
 ## **FAQ**
